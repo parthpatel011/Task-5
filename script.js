@@ -1,6 +1,5 @@
 $(document).ready(function() {
     var fname = $("#fname");
-    // var name_regex = /^[a-zA-Z]+$/;
     var lname = $("#lname");
     var email = $("#email");
     var email_regex = /^[\w-.]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,4}$/;
@@ -9,7 +8,7 @@ $(document).ready(function() {
     var password = $("#password");
     var password_regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
     var cfm_password = $("#cfm_password");
-    // var isValid = true; 
+
 
 
 
@@ -18,19 +17,19 @@ $(document).ready(function() {
             fname.attr('placeholder', 'Name is required');
             fname.css('border', '1px solid red');
             $('#fname_error').text('First Name is required');
-            // isValid = false;
+          
         }
     });
 
     fname.on("focus", function() {
-        fname.attr('placeholder', ''); // Remove the placeholder text on focus
+        fname.attr('placeholder', ''); 
         fname.css('border', ''); 
         $('#fname_error').text('');
     });
 
     fname.on("input", function() {
         if (fname.val().trim().length > 0) {
-            fname.css('border', ''); // Remove the red border if a valid name is entered
+            fname.css('border', ''); 
         }
     });
 
@@ -40,20 +39,19 @@ $(document).ready(function() {
             lname.attr('placeholder', 'Name is required');
             lname.css('border', '1px solid red');
             $('#lname_error').text('Last Name is required');
-            // isValid = false; 
 
         }
     });
 
     lname.on("focus", function() {
-        lname.attr('placeholder', ''); // Remove the placeholder text on focus
+        lname.attr('placeholder', '');
         lname.css('border', ''); 
         $('#lname_error').text('');
     });
 
    lname.on("input", function() {
         if (lname.val().trim().length > 0) {
-            lname.css('border', ''); // Remove the red border if a valid name is entered
+            lname.css('border', ''); 
         }
     });
 
@@ -64,19 +62,18 @@ $(document).ready(function() {
             email.attr('placeholder', 'Email is invalid');
             email.css('border', '1px solid red');
             $('#email_error').text('Enter Valid Email Id');
-            // isValid = false; 
         }
     });
 
     email.on("focus", function() {
-        email.attr('placeholder', ''); // Remove the placeholder text on focus
+        email.attr('placeholder', ''); 
         email.css('border', ''); 
         $('#email_error').text('');
         });
 
     email.on("input", function() {
         if (email.val().trim().length > 0) {
-            email.css('border', ''); // Remove the red border if a valid name is entered
+            email.css('border', '');
         }
     });
 
@@ -87,19 +84,18 @@ $(document).ready(function() {
             number.attr('placeholder', 'Enter Valid Mobile Number');
             number.css('border', '1px solid red');
             $('#number_error').text('Enter Valid Mobile Number');
-            // isValid = false; 
         }
     });
 
     number.on("focus", function() {
-        number.attr('placeholder', ''); // Remove the placeholder text on focus
+        number.attr('placeholder', ''); 
         number.css('border', ''); 
         $('#number_error').text('');
         });
 
     number.on("input", function() {
         if (number.val().trim().length > 0) {
-            number.css('border', ''); // Remove the red border if a valid name is entered
+            number.css('border', ''); 
         }
     });
     
@@ -111,19 +107,19 @@ $(document).ready(function() {
             password.attr('placeholder', 'Enter Valid Mobile Number');
             password.css('border', '1px solid red');
             $('#password_error').text('Password must be more than 8 characters and contain atleast one Uppercase,Lowercase,Number and Special Character');
-            // isValid = false; 
+          
         }
     });
 
     password.on("focus", function() {
-        password.attr('placeholder', ''); // Remove the placeholder text on focus
+        password.attr('placeholder', '');
         password.css('border', ''); 
         $('#password_error').text('');
         });
 
     password.on("input", function() {
         if (password.val().trim().length > 0) {
-            password.css('border', ''); // Remove the red border if a valid name is entered
+            password.css('border', ''); 
         }
     });
 
@@ -136,32 +132,33 @@ $(document).ready(function() {
             cfm_password.attr('placeholder', 'Enter Valid Mobile Number');
             cfm_password.css('border', '1px solid red');
             $('#cfm_password_error').text('Both password must be same');
-            // isValid = false; 
+           
         }
     });
 
     cfm_password.on("focus", function() {
-        cfm_password.attr('placeholder', ''); // Remove the placeholder text on focus
+        cfm_password.attr('placeholder', ''); 
         cfm_password.css('border', ''); 
         $('#cfm_password_error').text('');
         });
 
     cfm_password.on("input", function() {
         if (cfm_password.val().trim().length > 0) {
-            cfm_password.css('border', ''); // Remove the red border if a valid name is entered
+            cfm_password.css('border', '');
         }
     });
 
 
     $("form").submit(function(event) {
-        event.preventDefault(); // Prevents the form from submitting
-        var isValid = false;
+        event.preventDefault(); 
+        var isValid = 0;
         if(fname.val().length == ''){
             $('#fname_error').text('First Name is required');
-
+            isValid = 1; 
         }
         if(lname.val().length == ''){
             $('#lname_error').text('Last Name is required');
+            isValid = 1;
         }
         if(email.val().length == ''){
             $('#email_error').text('Email Id is required');
@@ -177,10 +174,9 @@ $(document).ready(function() {
         }
         
 
-        // if (isValid) {
-        //     // All validations passed, allow form submission
-        //     $("form").off("submit").submit();
-        // }
+        if (isValid == 0) {
+            alert('All The values are Valid and form is submitted')
+        }
 
     });
 });
