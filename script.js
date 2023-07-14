@@ -186,7 +186,7 @@ $(document).ready(function() {
             alert('All the values are valid and the form is submitted.');
         } 
         else{
-            alert('All the field are required')
+            alert('All the field are required');
         }
     });
     
