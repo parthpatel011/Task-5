@@ -148,35 +148,47 @@ $(document).ready(function() {
         }
     });
 
-
     $("form").submit(function(event) {
         event.preventDefault(); 
-        var isValid = 0;
-        if(fname.val().length == ''){
+        var valid = 0; 
+        
+        if (fname.val().length == '') {
             $('#fname_error').text('First Name is required');
-            isValid = 1; 
-        }
-        if(lname.val().length == ''){
-            $('#lname_error').text('Last Name is required');
-            isValid = 1;
-        }
-        if(email.val().length == ''){
-            $('#email_error').text('Email Id is required');
-        }
-        if(number.val().length == ''){
-            $('#number_error').text('Mobile Number is required');
-        }
-        if(password.val().length == ''){
-            $('#password_error').text('Password is required');
-        }
-        if(cfm_password.val().length == ''){
-            $('#cfm_password_error').text('Confirm Password is required');
+            valid = 1; 
         }
         
-
-        if (isValid == 0) {
-            alert('All The values are Valid and form is submitted')
+        if (lname.val().length == '') {
+            $('#lname_error').text('Last Name is required');
+            valid = 1; 
         }
-
+    
+        if (email.val().length == '') {
+            $('#email_error').text('Email Id is required');
+            valid = 1; 
+        }
+    
+        if (number.val().length == '') {
+            $('#number_error').text('Mobile Number is required');
+            valid = 1; 
+        }
+    
+        if (password.val().length == '') {
+            $('#password_error').text('Password is required');
+            valid = 1; 
+        }
+    
+        if (cfm_password.val().length == '') {
+            $('#cfm_password_error').text('Confirm Password is required');
+            valid = 1; 
+        }
+    
+        if (valid == 0) {
+            alert('All the values are valid and the form is submitted.');
+        } 
+        else{
+            alert('All the field are required')
+        }
     });
+    
+    
 });
